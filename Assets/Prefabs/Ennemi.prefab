@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 8321433118009874678}
   - component: {fileID: 7949311075341430959}
   - component: {fileID: 7512798202604340799}
-  m_Layer: 0
+  - component: {fileID: 2353338012452375704}
+  m_Layer: 6
   m_Name: Ennemi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.06132078, b: 0.951497, a: 1}
+  m_Color: {r: 1, g: 0.14624578, b: 0.062745094, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -163,10 +164,10 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!114 &7512798202604340799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,3 +180,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15053c87094177c4b9fb2169f1d217f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &2353338012452375704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412163581012679067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4615a4b18e1644e8cc1f8afd8215d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnnemiPatrol
+  rb: {fileID: 7949311075341430959}
+  moveSpeed: 7
+  obstacleCheckRadius: 0.2
+  listObstacles:
+    serializedVersion: 2
+    m_Bits: 8
+  obstacleLengthDetection: 0.15
+  bc: {fileID: 8321433118009874678}
