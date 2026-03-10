@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Animations()
     {
-        animator.SetFloat("VelocityX", rb.linearVelocityX);
+        animator.SetFloat("VelocityX", Mathf.Abs(rb.linearVelocityX));
     }
 
     private void FixedUpdate()
