@@ -14,6 +14,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private SpriteRenderer sr;
 
+    [SerializeField]
+    private healthbar healthBar;
+
     private bool isInvulnerable = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,6 +38,7 @@ public class PlayerHealth : MonoBehaviour
         currentLifePoints - 1, 
         0, 
         maxLifePoints);
+        healthBar.SetHealth ((float)currentLifePoints / maxLifePoints);
         StartCoroutine(InvulnerableFlash());
         currentLifePointsText.SetText(currentLifePoints.ToString());
     }
