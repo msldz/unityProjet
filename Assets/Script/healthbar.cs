@@ -15,11 +15,18 @@ public class healthbar : MonoBehaviour
     [SerializeField]
     private IntVariable playerMaxLifePoints;
 
-    void Update()
+    [SerializeField]
+    private VoidEventChannel onPlayerTakeDamage;
+
+   void OnEnable()
     {
-        SetHealth();
+        onPlayerTakeDamage.OnEventRaised += SetHealth;
     }
 
+    void OnDisable()
+    {
+        onPlayerTakeDamage.OnEventRaised -= SetHealth;
+    }
     private void SetHealth()
     {
         float healthNormalized = (float)playerCurrentLifePoints.CurrentValue / playerMaxLifePoints.CurrentValue;

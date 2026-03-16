@@ -9,6 +9,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private IntVariable maxLifePoints;
     [SerializeField]
+    private VoidEventChannel onTakeDamage;
+
+    [SerializeField]
     private TextMeshProUGUI currentLifePointsText;
 
     [SerializeField]
@@ -34,6 +37,7 @@ public class PlayerHealth : MonoBehaviour
         currentLifePoints.CurrentValue - 1, 
         0, 
         maxLifePoints.CurrentValue);
+        onTakeDamage.Raise();
         StartCoroutine(InvulnerableFlash());
     }
 
