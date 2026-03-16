@@ -5,27 +5,22 @@ using System.Collections;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]
-    private int currentLifePoints;
+    private IntVariable currentLifePoints;
     [SerializeField]
-    private int maxLifePoints;
+    private IntVariable maxLifePoints;
     [SerializeField]
     private TextMeshProUGUI currentLifePointsText;
 
     [SerializeField]
     private SpriteRenderer sr;
 
-    [SerializeField]
-    private healthbar healthBar;
 
     private bool isInvulnerable = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        currentLifePoints = maxLifePoints;
-        currentLifePointsText.SetText(currentLifePoints.ToString());
-        healthBar.SetHealth ((float)currentLifePoints / maxLifePoints);
-
+        currentLifePoints.CurrentValue = maxLifePoints.CurrentValue;
     }
 
     
@@ -35,13 +30,11 @@ public class PlayerHealth : MonoBehaviour
         {
             return;
         }
-        currentLifePoints = Mathf.Clamp(
-        currentLifePoints - 1, 
+        currentLifePoints.CurrentValue = Mathf.Clamp(
+        currentLifePoints.CurrentValue - 1, 
         0, 
-        maxLifePoints);
-        healthBar.SetHealth ((float)currentLifePoints / maxLifePoints);
+        maxLifePoints.CurrentValue);
         StartCoroutine(InvulnerableFlash());
-        currentLifePointsText.SetText(currentLifePoints.ToString());
     }
 
     IEnumerator InvulnerableFlash()
